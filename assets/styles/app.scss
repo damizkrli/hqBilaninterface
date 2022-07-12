@@ -1,0 +1,116 @@
+@import "navbar";
+@import "vars";
+
+*:focus {
+  outline: none;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+  background-color: $body;
+}
+
+.button-disabled {
+  background-color: $white-text;
+  color: $black-text;
+  border: $border;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    background-color: gray;
+    color: $white-text;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+}
+
+.button {
+  background-color: $white-text;
+  color: $black-text;
+  border: $border;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    background-color: $black-text;
+    color: $white-text;
+  }
+}
+
+.branch {
+  background-color: $black-text;
+  color: $color-title;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.title-cells {
+  background-color: $black-text;
+  color: $color-title;
+}
+
+.head {
+  background-color: $black-text;
+}
+
+input[type="text"], input[type="email"], input[type="search"] {
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+#create_secteur_libelle,
+#edit_secteur_libelle,
+#create_branche_nom,
+#create_branche_mail,
+#create_secteur_horsect,
+#create_secteur_branche,
+#edit_secteur_branche {
+  width: 55vh;
+  padding: 6px;
+}
+
+#create_email_mail {
+  width: 40%;
+  padding: 6px;
+}
+
+#create_secteur_branche {
+  width: 55vh;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+#edit_secteur_horsect {
+  width: 24vh;
+  padding: 6px;
+}
+
+#q {
+  padding: 6px;
+  width: 35vh;
+}
+
+.error {
+  background-color: red;
+}
+
+.cells:hover {
+  background-color: rgba(12, 65, 154, 25%);
+  box-shadow: 2px 7px 5px -8px #000000;
+}
+
+.delete:hover {
+  color: black;
+}

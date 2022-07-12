@@ -1,0 +1,38 @@
+@import "vars";
+
+.navbar {
+  background-color: $black-text;
+}
+
+.title {
+  color: $white-text;
+  font-family: $font-title;
+  font-size: $size-title;
+}
+
+.links {
+  background-color: $black-text;
+  color: $color-title;
+
+  &:hover {
+    background-color: $color-title;
+    color: $black-text;
+  }
+
+}
+
+.icon {
+  color: inherit;
+}
+
+.user-icon {
+  color: $white-text;
+  width: 20px;
+  height: 20px;
+}
+
+.user-name {
+  color: $white-text;
+  font-size: $size-text;
+  font-family: $font-text;
+}
