@@ -19,6 +19,20 @@ class RelSectionBranche
     #[ORM\Column(type: 'string', length: 100)]
     private ?string $libelle;
 
+    #[ORM\ManyToOne(targetEntity: Branche::class, inversedBy: 'secteurs')]
+    #[ORM\JoinColumn(name:"id_branche", referencedColumnName:"id_branche",nullable: false)]
+    private $branche;
+
+    /**
+     * @param string|null $horsect
+     * @param string|null $libelle
+     */
+    public function __construct(?string $horsect, ?string $libelle)
+    {
+        $this->horsect = $horsect;
+        $this->libelle = $libelle;
+    }
+
     public function getIdRelSecBra(): ?int
     {
         return $this->idRelSecBra;
@@ -29,22 +43,14 @@ class RelSectionBranche
         return $this->horsect;
     }
 
-    public function setHorsect(string $horsect): self
-    {
-        $this->horsect = $horsect;
-
-        return $this;
-    }
-
     public function getLibelle(): ?string
     {
         return $this->libelle;
     }
 
-    public function setLibelle(string $libelle): self
+    public function getBranche(): string
     {
-        $this->libelle = $libelle;
-
-        return $this;
+        return $this->branche;
     }
+
 }
