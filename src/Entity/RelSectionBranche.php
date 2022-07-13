@@ -53,4 +53,18 @@ class RelSectionBranche
         return $this->branche;
     }
 
+    public function addSecteur(string $libelle, string $horsect, Branche $branche): void
+    {
+        $this->libelle = $libelle;
+        $this->horsect = $horsect;
+        $this->branche = $branche;
+    }
+
+    public function update(string $libelle, string $horsect, string $branche): void
+    {
+        $this->libelle = $libelle;
+        $this->horsect = $horsect;
+        $this->branche = $branche;
+    }
+
 }

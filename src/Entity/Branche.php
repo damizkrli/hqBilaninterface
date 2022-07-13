@@ -24,10 +24,6 @@ class Branche
     #[ORM\OneToMany(mappedBy: 'branche', targetEntity: RelSectionBranche::class)]
     private $secteurs;
 
-    /**
-     * @param string|null $nom
-     * @param string|null $mail
-     */
     public function __construct(?string $nom, ?string $mail)
     {
         $this->nom = $nom;
@@ -49,11 +45,54 @@ class Branche
         return $this->mail;
     }
 
-    /**
-     * @return Collection<int, RelSectionBranche>
-     */
-    public function getSecteurs(): Collection
+    public function getMails(): array
+    {
+        return explode(';', $this->mail);
+    }
+
+    public function getNumberMails(): int
+    {
+        return count($this->getMails());
+    }
+
+    public function getSecteurs()
     {
         return $this->secteurs;
+    }
+
+    public function update(string $nom): void
+    {
+        $this->nom = $nom;
+    }
+
+    public function addBranche(string $nom, string $mail): void
+    {
+        $this->nom = $nom;
+        $this->mail = $mail;
+    }
+
+    public function addEmail(?string $mail): void
+    {
+        $this->mail .= ';' . $mail;
+    }
+
+    public function deleteEmail(string $userMailSelected): void
+    {
+        $emails = $this->getMails();
+        $filterMails = [];
+
+        foreach ($emails as $email) {
+            if ($email !== $userMailSelected) {
+                $filterMails[] = $email;
+            }
+        }
+        $this->mail = $filterMails;
+
+        return;
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
     }
 }
