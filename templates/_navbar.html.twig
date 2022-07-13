@@ -2,8 +2,7 @@
 <nav class="navbar flex items-center justify-between flex-wrap">
     <div class="flex justify-between lg:w-auto w-full pl-6 pr-2 pb-5 lg:pb-0">
         <div class="flex items-center flex-shrink-0 text-gray-800 mr-16">
-            <a class="title font-semibold text-xxl tracking-tight" href="#">HQ BILAN INTERFACE</a>
-{#            {{ path('branche') }}#}
+            <a class="title font-semibold text-xxl tracking-tight" href="{{ path('branche') }}">HQ BILAN INTERFACE</a>
         </div>
         <div class="block lg:hidden">
             <button
@@ -21,8 +20,7 @@
     <div class="menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8">
         <div class="text-md font-bold text-blue-700 lg:flex-grow">
             <a class="links block mt-4 lg:inline-block lg:mt-0 px-4 py-2 rounded mr-2"
-               href="#">
-{#                {{ path('branche') }}#}
+               href="{{ path('branche') }}">
                 <i class="icon fas fa-code-branch"></i>
                 Gestion des Branches
             </a>

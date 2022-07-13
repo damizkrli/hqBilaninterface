@@ -25,8 +25,7 @@
         {# Bouton new #}
         <div class="flex flex-wrap -mx-3 mb-6 px-3">
             <a class="button py-1 px-2"
-{#                    {{ path('add_branche') }}#}
-               href="#">Ajouter une branche</a>
+               href="{{ path('add_branche') }}">Ajouter une branche</a>
         </div>
         {# Tableau #}
         <div class="overflow-x-auto bg-white rounded-lg shadow-lg overflow-y-auto relative"
@@ -57,8 +56,7 @@
                         <td class="px-2 py-4">
                             {% if branche.nom is not same as "ALL" %}
                                 {% if branche.secteurs.count is same as 0 %}
-                                    <form id="form" method="post" action="#">
-{#                                        {{ path('delete_branche', {'id': branche.idBranche}) }}#}
+                                    <form id="form" method="post" action="{{ path('delete_branche', {'id': branche.idBranche}) }}">
                                         <input type="hidden" name="_token"
                                                value="{{ csrf_token('delete' ~ branche.idBranche) }}">
                                         <button id="deleteBranche"
@@ -95,7 +93,7 @@
                             {{ branche.nom|upper }}
                         </td>
                         <td class="px-3 text-sm">
-{#                            {{ branche.getNumberMails }}#}
+                            {{ branche.getNumberMails }}
                         </td>
                         <td class="px-3 text-sm">
                             {% if branche.nom is not same as "ALL" %}
@@ -107,8 +105,7 @@
                         <td class="px-3">
                             {% if branche.nom is not same as "ALL" %}
                                 <a class="button text-blue-600 dark:text-blue-500 py-1 px-4"
-                                   href="#">
-{#                                    {{ path('edit_branche', {'id': branche.idBranche}) }}#}
+                                   href="{{ path('edit_branche', {'id': branche.idBranche}) }}">
                                     Modifier
                                 </a>
                             {% elseif branche.nom is same as "ALL" %}
@@ -120,8 +117,7 @@
                         </td>
                         <td class="px-3">
                             <a class="button text-blue-600 dark:text-blue-500 py-1 px-4"
-                               href="#">
-{#                                {{ path('index_email', {'id': branche.idBranche}) }}#}
+                               href="{{ path('index_email', {'id': branche.idBranche}) }}">
                                 Email
                             </a>
                         </td>

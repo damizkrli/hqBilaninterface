@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2626639-2ff7-4e59-a36c-1978d83403d8" name="Changes" comment="" />
+    <list default="true" id="a2626639-2ff7-4e59-a36c-1978d83403d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/branche/add_branche.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/branche/add_email.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/branche/edit_branche.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/branche/index_email.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BrancheController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BrancheController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/_navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/branche/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/branche/index_branche.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/secteur/index.html.twig" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -171,7 +181,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/vador/Projects/SymfonyProjects/hqbilaninterface/templates",
+    "last_opened_file_path": "/home/vador/Projects/SymfonyProjects/hqbilaninterface/templates/branche",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -183,11 +193,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/branche" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/src/Validator" />
-      <recent name="$PROJECT_DIR$/src/Form" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates" />
@@ -208,7 +218,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657621096630</updated>
       <workItem from="1657621097776" duration="12902000" />
-      <workItem from="1657690538767" duration="1792000" />
+      <workItem from="1657690538767" duration="2727000" />
     </task>
     <servers />
   </component>

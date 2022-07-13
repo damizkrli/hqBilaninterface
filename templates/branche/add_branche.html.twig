@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une branche{% endblock %}
+
+{% block body %}
+
+    {# Formulaire d'ajout #}
+    <div class="container mx-auto px-16 py-16">
+        <div class="flex-wrap -mx-3 mb-6">
+            <h2 class="text-3xl text-center mt-16 mb-16">Nouvelle Branche</h2>
+            {{ form_start(form) }}
+
+            <div style="height: 120px; margin: 10px 10px 0">
+                <div class="flex items-center justify-center mb-5 mt-5">
+                    {{ form_widget(form.nom) }}
+                </div>
+                {% if not form.nom.vars.valid %}
+                    <div class="text-center text-red-500 mb-5">
+                        <div class="flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                                 stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            {{ form_errors(form.nom) }}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <div style="height: 120px; margin: 10px 10px 0">
+                <div class="flex items-start justify-center px-5">
+                    {{ form_widget(form.mail) }}
+                </div>
+                {% if not form.mail.vars.valid %}
+                    <div class="text-center text-red-500 mb-5 mt-5">
+                        <div class="flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
+                                 stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            {{ form_errors(form.mail) }}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    {#  Button group  #}
+    <div class="flex items-center justify-center mt-6">
+        <button type="submit" value="Enregistrer"
+                class="button py-1 px-4 mr-4">
+            Ajouter
+        </button>
+        {{ form_end(form) }}
+        <button type="button" value="Retour"
+                class="button py-1 px-4">
+            <a href="{{ path('branche') }}">Retour</a>
+        </button>
+    </div>
+    </div>
+
+{% endblock %}
