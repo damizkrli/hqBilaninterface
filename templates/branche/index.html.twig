@@ -1,9 +1,135 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BrancheController!{% endblock %}
+{% block title %} Branches {% endblock %}
 
 {% block body %}
-    {% for branche in branches %}
-        {{ branche.nom }}
-    {% endfor %}
+
+    {# Message de validation #}
+    <div class="messages absolute right-3 items-start justify-center top-14">
+        {% for message in app.flashes('success') %}
+            <div class="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3 my-12 rounded-lg"
+                 role="alert">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="ml-10">
+                    <strong>{{ message }}</strong>
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="container mx-auto py-6 px-4">
+        <h1 class="text-3xl py-4 border-b mb-10">Liste des Branches</h1>
+        {# Bouton new #}
+        <div class="flex flex-wrap -mx-3 mb-6 px-3">
+            <a class="button py-1 px-2"
+{#                    {{ path('add_branche') }}#}
+               href="#">Ajouter une branche</a>
+        </div>
+        {# Tableau #}
+        <div class="overflow-x-auto bg-white rounded-lg shadow-lg overflow-y-auto relative"
+             style="height: 60vh;">
+            <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative border-none">
+                <thead>
+                <tr class="text-left">
+                    <th class="title-cells py-2 px-3 sticky top-0">
+                    </th>
+                    <th class="title-cells py-4 px-4 sticky top-0 text-lg">
+                        Branche
+                    </th>
+                    <th class="title-cells py-4 px-4 sticky top-0 text-lg">
+                        Adresses Mails Associées
+                    </th>
+                    <th class="title-cells py-2 px-3 sticky top-0 text-lg">
+                        Secteurs Associés
+                    </th>
+                    <th class="title-cells py-2 px-3 sticky top-0">
+                    </th>
+                    <th class="title-cells py-2 px-3 sticky top-0">
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for branche in branches|sort((a, b) => a.nom <=> b.nom) %}
+                    <tr class="cells">
+                        <td class="px-2 py-4">
+                            {% if branche.nom is not same as "ALL" %}
+                                {% if branche.secteurs.count is same as 0 %}
+                                    <form id="form" method="post" action="#">
+{#                                        {{ path('delete_branche', {'id': branche.idBranche}) }}#}
+                                        <input type="hidden" name="_token"
+                                               value="{{ csrf_token('delete' ~ branche.idBranche) }}">
+                                        <button id="deleteBranche"
+                                                class="text-blue-600 dark:text-blue-500 hover:underline ml-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-1" fill="none"
+                                                 viewBox="0 0 24 24" stroke="red" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                            </svg>
+                                        </button>
+                                    </form>
+                                {% else %}
+                                    <button class="text-blue-600 dark:text-blue-500 hover:underline ml-3"
+                                            onclick="associatedSector()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-1" fill="none"
+                                             viewBox="0 0 24 24" stroke="red" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                        </svg>
+                                    </button>
+                                {% endif %}
+                            {% elseif branche.nom is same as "ALL" %}
+                                <button class="text-blue-600 dark:text-blue-500 hover:underline ml-3"
+                                        onclick="allBranch()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-1" fill="none"
+                                         viewBox="0 0 24 24" stroke="red" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                    </svg>
+                                </button>
+                            {% endif %}
+                        </td>
+                        <td class="px-3 text-sm">
+                            {{ branche.nom|upper }}
+                        </td>
+                        <td class="px-3 text-sm">
+{#                            {{ branche.getNumberMails }}#}
+                        </td>
+                        <td class="px-3 text-sm">
+                            {% if branche.nom is not same as "ALL" %}
+                                {{ branche.secteurs.count }}
+                            {% else %}
+                                --
+                            {% endif %}
+                        </td>
+                        <td class="px-3">
+                            {% if branche.nom is not same as "ALL" %}
+                                <a class="button text-blue-600 dark:text-blue-500 py-1 px-4"
+                                   href="#">
+{#                                    {{ path('edit_branche', {'id': branche.idBranche}) }}#}
+                                    Modifier
+                                </a>
+                            {% elseif branche.nom is same as "ALL" %}
+                                <a class="button-disabled cursor-not-allowed text-blue-600 dark:text-blue-500 py-1 px-4"
+                                   href="#">
+                                    Modifier
+                                </a>
+                            {% endif %}
+                        </td>
+                        <td class="px-3">
+                            <a class="button text-blue-600 dark:text-blue-500 py-1 px-4"
+                               href="#">
+{#                                {{ path('index_email', {'id': branche.idBranche}) }}#}
+                                Email
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 {% endblock %}
