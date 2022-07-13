@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ secteur.libelle }} ({{ secteur.horsect }}) {% endblock %}
+
+{% block body %}
+
+    {#  Message d'erreur  #}
+    {% if not form.vars.valid %}
+        <div class="messages absolute right-3 items-start justify-center top-14">
+            <div class="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3 my-12 rounded-lg"
+                 role="alert">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="mr-10">
+                    <strong>{{ form_errors(form.libelle) }}</strong>
+                </p>
+                <p>
+                    <strong>{{ form_errors(form.horsect) }}</strong>
+                </p>
+            </div>
+        </div>
+    {% endif %}
+
+    {#  Champ de modification  #}
+    <div class="flex mx-auto items-center justify-center mt-56 mx-8 mb-4 max-w-lg">
+        <div class="flex-wrap items-center justify-center -mx-3 mb-6">
+            <h2 class="text-3xl">Modification en cours</h2>
+            {{ form_start(form) }}
+            <div class="input flex items-center justify-center px-3 mb-2 mt-2">
+                {{ form_widget(form.libelle) }}
+            </div>
+            <div class="input flex items-center justify-start px-3 mb-2 mt-2">
+                {{ form_widget(form.horsect) }}
+            </div>
+            <div class="input flex items-center justify-start px-3 mb-2 mt-2">
+                {{ form_widget(form.branche) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center mt-10">
+        <button type="submit" value="Enregistrer"
+                class="button py-2 px-4 mr-4 rounded-lg">
+            Enregistrer
+        </button>
+        {{ form_end(form) }}
+
+        <button type="button" value="Retour"
+                class="button py-2 px-4 rounded-lg">
+            <a href="{{ path('secteur') }}">Retour</a>
+        </button>
+    </div>
+
+{% endblock %}
