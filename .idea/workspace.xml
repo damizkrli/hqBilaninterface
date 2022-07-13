@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2626639-2ff7-4e59-a36c-1978d83403d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/_navbar.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bundles/MercurySeriesFlashyBundle/flashy-success.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Data/SearchData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Dto/Branche/AddBranche.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Dto/Branche/EditBranche.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Dto/Email/AddEmail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Dto/RelSectionBranche/AddSecteur.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Dto/RelSectionBranche/EditSecteur.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/branche/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/branche/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/RelSectionBrancheRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RelSectionBrancheRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,9 +192,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/assets" />
-      <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/src/Validator" />
       <recent name="$PROJECT_DIR$/src/Form" />
     </key>
@@ -214,7 +217,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657621096630</updated>
       <workItem from="1657621097776" duration="12902000" />
-      <workItem from="1657690538767" duration="613000" />
+      <workItem from="1657690538767" duration="1422000" />
     </task>
     <servers />
   </component>
